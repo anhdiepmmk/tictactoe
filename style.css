@@ -1,0 +1,119 @@
+/* body #gameContainer{
+  display: block;
+  background-color: antiquewhite;
+} */
+
+.cell {
+  width: 75px;
+  height: 75px;
+  border: 2px solid;
+  box-shadow: 0 0 0 2px;
+  line-height: 75px; 
+  font-size: 50px;
+  cursor: pointer; 
+}
+
+#gameContainer {
+  display: none;
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
+}
+
+#cellContainer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 225px;
+  margin: auto;
+}
+
+#gameContainer .scoreDisplay {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+	width: 225px;
+  max-height: 100px;
+  margin: auto;
+  font-size: 24px;
+}
+
+#X {
+  color: red;
+}
+
+#Y {
+  color: green;
+}
+
+
+
+/*// POP-UP BASE STYLES //*/
+
+body{
+  background-color: #333;
+  margin: 0; position: relative;
+}
+
+body.pop-up{
+  background: #222;
+}
+
+*{
+  font-family: Calibri, sans-serif; 
+  font-weight: normal;
+  color: #333;
+}
+
+h1{
+  font-size: 48px;
+  margin: 10px 0;
+}
+
+p{
+  margin-bottom: 40px;
+}
+
+#pop-up{
+  /* display: none; */
+  position: relative; 
+  top: 200px; 
+  width: 500px; 
+  margin: 0 auto; 
+  text-align: center;
+}
+
+img {
+  margin-top: -40px;
+  width: 70%;
+}
+
+#pop-up .container{
+  background: #f0e4d4; 
+  padding: 30px; 
+  position: absolute; 
+  top: 50px; 
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+#pop-up input{
+  padding: 10px;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #333;
+  font-size: 18px;
+}
+
+button{
+  padding: 10px;
+  border: 0;
+  color: #fff;
+  background: #333;
+  margin-left: -5px;
+  margin-left: -5px;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #333;
+  font-size: 18px;
+}
+
+button:hover{
+  background-color: #555;
+}
