@@ -9,19 +9,19 @@
   <title>Tictactoe</title>
 </head>
 <body>
-  <div class="pop-up">
-    <div id="pop-up">
-      <img src="/logo.png" alt="background">
-      <div class="container">
+  <div class="pop-up" id="pop-up">
+    <img src="/logo.png" alt="background">
+    <div class="container">
         <h1>Are you X or O player?</h1>
         <p>Choose one of the two to enter the game</p>
-        <input type="text" placeholder="X or O" id="player">
-        <button id="submit" onclick="location.href='./index.html'" type="button">Let's go</button>
-      </div>
+        <select id="player" onchange="currentPlayer()">
+          <option value="X">Player's X</option>
+          <option value="O">Player's O</option>
+        </select>
+        <button id="submit" onclick="closePopup()" type="submit">Let's go</button>
     </div>
   </div>
-
-  <div id="gameContainer">
+  <div class="gameContainer" id="gameContainer">
     <h1>Tic Tac Toe</h1>
     <div class="scoreDisplay">
       <p style="color: red;">X: <strong id="X"></strong></p>

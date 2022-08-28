@@ -1,7 +1,14 @@
-/* body #gameContainer{
+body .gameContainer{
   display: block;
   background-color: antiquewhite;
-} */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
 .cell {
   width: 75px;
@@ -13,10 +20,10 @@
   cursor: pointer; 
 }
 
-#gameContainer {
-  display: none;
+.gameContainer {
   font-family: "Permanent Marker", cursive;
   text-align: center;
+  visibility: hidden;
 }
 
 #cellContainer {
@@ -26,7 +33,7 @@
   margin: auto;
 }
 
-#gameContainer .scoreDisplay {
+.gameContainer .scoreDisplay {
   display: grid;
   grid-template-columns: repeat(2, auto);
 	width: 225px;
@@ -44,8 +51,7 @@
 }
 
 
-
-/*// POP-UP BASE STYLES //*/
+/*POP-UP BASE STYLES */
 
 body{
   background-color: #333;
@@ -64,20 +70,20 @@ body.pop-up{
 
 h1{
   font-size: 48px;
-  margin: 10px 0;
+  margin: 10px 0 10px 0;
 }
 
 p{
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
-#pop-up{
-  /* display: none; */
+.pop-up{
   position: relative; 
   top: 200px; 
   width: 500px; 
   margin: 0 auto; 
   text-align: center;
+  visibility: visible;
 }
 
 img {
@@ -85,7 +91,7 @@ img {
   width: 70%;
 }
 
-#pop-up .container{
+.pop-up .container{
   background: #f0e4d4; 
   padding: 30px; 
   position: absolute; 
@@ -94,15 +100,19 @@ img {
   box-sizing: border-box;
 }
 
-#pop-up input{
+.pop-up select{
   padding: 10px;
   border: 0;
   border-radius: 10px 0 0 10px;
   border: 1px solid #333;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-button{
+select {
+  width: 200px;
+}
+
+button {
   padding: 10px;
   border: 0;
   color: #fff;
@@ -111,9 +121,21 @@ button{
   margin-left: -5px;
   border-radius: 0 10px 10px 0;
   border: 1px solid #333;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 button:hover{
   background-color: #555;
+}
+
+.close-pop-up {
+  visibility: hidden;
+}
+
+
+.open-gameContainer {
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
+  visibility: hidden;
+  visibility: visible;
 }

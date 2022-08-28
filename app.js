@@ -3,8 +3,11 @@ const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
 const scoreX = document.querySelector("#X");
 const scoreY = document.querySelector("#Y");
-const namePlayer = document.getElementById("player");
-console.log("namePlayer", namePlayer);
+const player = document.getElementById("player");
+const soundClick = new Audio("click.wav");
+const soundSuccess = new Audio("success.mp3");
+const soundDraw = new Audio("draw.mp3");
+
 const winConditions = [
   [0, 1, 2],
   [3, 4, 5],
@@ -17,8 +20,19 @@ const winConditions = [
 ];
 
 let options = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X";
+let currentPlayer = function currentPlayer() {
+  return player.value;
+  console.log(player);
+}
 let running = false;
+let startGame = document.getElementById("gameContainer");
+const popUp = document.getElementById("pop-up");
+
+
+function closePopup() {
+  popUp.classList.add("close-pop-up");
+  startGame.classList.add("open-gameContainer");
+}
 
 initializeGame();
 
@@ -41,19 +55,8 @@ function cellClicked() {
 function updateCell(cell, index) {
   options[index] = currentPlayer;
   cell.textContent = currentPlayer;
+  soundClick.play();
 }
-
-// function checkPlayerName(namePlayer) {
-//   if (namePlayer === "X" || namePlayer === "x") {
-//     currentPlayer = "X";
-//   } else if (namePlayer === "O" || namePlayer === "o") {
-//     currentPlayer = "O";
-//   } else {
-//     namePlayer.innerText = "Player name must be: X or O";
-//     return;
-//   }
-//   console.log("Player name: " + namePlayer);
-// }
 
 function changePlayer() {
   currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -76,17 +79,21 @@ function checkWinners() {
     }
     if (cellA === cellB && cellB === cellC) {
       roundWon = true;
-      count += 1;
-      scoreX.innerText = count;
       break;
     }
   }
   if (roundWon) {
     statusText.textContent = `${currentPlayer} win!`;
+    count += 1;
+    if (currentPlayer === scoreX) {
+      scoreX.innerText = count;
+    } else scoreY.innerText = count;
     running = false;
+    soundSuccess.play();
   } else if (!options.includes("")) {
     statusText.textContent = `Draw!`;
     running = false;
+    soundDraw.play();
   } else {
     changePlayer();
   }
